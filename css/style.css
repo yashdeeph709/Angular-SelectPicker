@@ -1,0 +1,187 @@
+.md-input {
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+html {
+    zoom: 75%;
+}
+
+ label {
+    font-size: 1.3em;
+    font-weight: bolder;
+}
+.hwmicon {
+    height: 10%;
+    width: 70%;
+}
+
+.menufab {
+    font-size: 2.5em;
+    padding-top: 10px;
+}
+
+.close {
+    padding-top: 10px;
+    padding-right: 15px;
+}
+
+.dlist li span {
+    font-weight: bold;
+    padding-right: 15px;
+    font-size: 15px;
+}
+
+.dlist {
+    list-style: none;
+}
+
+.questions {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+table tr td a.md-button {
+    margin: 0px;
+    font-size: 1.2em;
+    line-height: 20px;
+    min-height: 26px;
+}
+
+.layout-padding {
+    padding: 8px;
+}
+
+.md-whiteframe-z4 {
+    margin-top: 10px;
+}
+
+.md-dialog {
+    min-width: 500px;
+    margin-bottom: 25%;
+}
+
+.MenuItem {
+    background-color: #dce775;
+}
+
+#status-buttons a {
+    color: black;
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#status-buttons a:hover {
+    text-decoration: none;
+}
+
+#status-buttons span {
+    display: block;
+    height: 30px;
+    margin: 0 auto 10px;
+    padding-top: 5px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+#status-buttons a.active span {
+    background: #00BC8C;
+}
+
+#form-views {
+    width: auto;
+}
+
+#form-views.ng-enter,
+#form-views.ng-leave {
+    position: absolute;
+    transition: 1s all ease;
+    -moz-transition:1s all ease;
+    -webkit-transition: 1s all ease;
+}
+
+#form-views.ng-enter {
+    -webkit-animation: slideInRight 0.8s both ease;
+    -moz-animation: slideInRight 0.8s both ease;
+    animation: slideInRight 0.8s both ease;
+}
+
+#form-views.ng-leave {
+    -webkit-animation: slideOutLeft 0.8s both ease;
+    -moz-animation: slideOutLeft 0.8s both ease;
+    animation: slideOutLeft 0.8s both ease;
+}
+
+@keyframes slideOutLeft {
+    to {
+        transform: translateX(-200%);
+    }
+}
+
+@-moz-keyframes slideOutLeft {
+    to {
+        -moz-transform: translateX(-200%);
+    }
+}
+
+@-webkit-keyframes slideOutLeft {
+    to {
+        -webkit-transform: translateX(-200%);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(200%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@-moz-keyframes slideInRight {
+    from {
+        -moz-transform: translateX(200%);
+    }
+    to {
+        -moz-transform: translateX(0);
+    }
+}
+
+@-webkit-keyframes slideInRight {
+    from {
+        -webkit-transform: translateX(200%);
+    }
+    to {
+        -webkit-transform: translateX(0);
+    }
+}
+
+.animate {
+    width: auto;
+}
+
+.animate.ng-enter,
+.animate.ng-leave {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    transition: 0.5s all ease-out;
+    -moz-transition: 0.5s all ease-out;
+    -webkit-transition: 0.5s all ease;
+}
+
+.animate.ng-enter {
+    -webkit-animation: slideInRight 0.5s both ease;
+    -moz-animation: slideInRight 0.5s both ease;
+    animation: slideInRight 0.5s both ease;
+}
+
+.animate.ng-leave {
+    -webkit-animation: slideOutLeft 0.5s both ease;
+    -moz-animation: slideOutLeft 0.5s both ease;
+    animation: slideOutLeft 0.5s both ease;
+}

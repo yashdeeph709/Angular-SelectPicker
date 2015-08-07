@@ -1,15 +1,19 @@
-<div class="btn-group bootstrap-select open">
-    <button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" title="Hot Dog, Fries and a Soda" aria-expanded="true"> <span class="filter-option pull-left">Hot Dog, Fries and a Soda</span>&nbsp;<span class="caret"></span></button>
-
+<div class="btn-group bootstrap-select" ng-class="class" ng-click="open()">
+    <button type="button" class="btn dropdown-toggle btn-default">
+        <span class="filter-option pull-left">{{options[0]}}</span> &nbsp;
+        <span class="caret"></span>
+    </button>
     <div class="dropdown-backdrop"></div>
     <div class="dropdown-menu open" style="max-height: 337px; overflow: hidden; min-height: 42px;">
         <div class="bs-searchbox">
-            <input type="text" class="form-control" autocomplete="off">
+            <input type="text" ng-model="selectv2.searchtext" class="form-control" autocomplete="off">
         </div>
         <ul class="dropdown-menu inner" role="menu" style="max-height: 283px; overflow-y: auto; min-height: 0px;">
-            <li data-original-index="0" class="selected active"><a tabindex="0" class="" data-normalized-text="<span class=&quot;text&quot;>Hot Dog, Fries and a Soda</span>" data-tokens="null"><span class="text">Hot Dog, Fries and a Soda</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
-            <li data-original-index="1"><a tabindex="0" class="" data-normalized-text="<span class=&quot;text&quot;>Burger, Shake and a Smile</span>" data-tokens="null"><span class="text">Burger, Shake and a Smile</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
-            <li data-original-index="2"><a tabindex="0" class="" data-normalized-text="<span class=&quot;text&quot;>Sugar, Spice and all things nice</span>" data-tokens="null"><span class="text">Sugar, Spice and all things nice</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+            <li data-original-index="{{option.$index}}" ng-repeat="option in options | filter:selectv2.searchtext">
+                <a>
+                    <span class="text">{{option}}</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

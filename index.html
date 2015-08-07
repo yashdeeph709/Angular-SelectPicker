@@ -3,12 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap-select.css">
 </head>
 
-<body>
-    <selectv2></selectv2>
+<body ng-controller="basiccontroller">
+    <selectv2 data-options="options" ng-model="value"></selectv2>
+    <center>{{value}}</center>
     <script src="js/lib/angular.min.js"></script>
     <script src="js/app.js"></script>
 </body>

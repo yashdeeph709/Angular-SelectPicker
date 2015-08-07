@@ -76,7 +76,7 @@ Please check if issue exists and otherwise open issue in [github](https://github
 
 **Please add a link to a plunker, jsbin, or equivalent.** 
 
-# Contributing
+<!---# Contributing
  
 Pull requests welcome!
 
@@ -86,7 +86,7 @@ Pull requests welcome!
 4. Update examples under examples directory
 5. Run tests: `npm test`, `gulp test`
 6. Submit pull request
-
+--->
 ## Contributors
 
 Thank you!
@@ -94,12 +94,12 @@ Thank you!
 
 # Author
 
-Designed and built by [Deepu K Sasidharan](https://github.com/jtblin)
+Designed and built by [Yashdeep Hinge](https://github.com/jtblin)
 
-[Issues](https://github.com/deepu105/angular-clock/issues?state=open)
+[Issues](https://github.com/yashdeeph709/selectv2/issues?state=open)
 
-Inspired from [this demo](https://gist.github.com/BinaryMuse/6100363).
+Inspired from [this demo](http://silviomoreto.github.io/bootstrap-select/).
 
 # License
 
-angular-clock.js is available under the [MIT license](http://opensource.org/licenses/MIT).
+selectv2.js is available under the [MIT license](http://opensource.org/licenses/MIT).

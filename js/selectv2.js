@@ -13,14 +13,26 @@
 
       function linkFn(scope, element, attrs) {
          scope.selected = attrs.default;
+         var x = attrs.maxopt - 1;
          open = function(e) {
             element.toggleClass("open");
          }
          scope.select = function(id) {
-            console.log("select called" + id)
             $timeout(function() {
-               scope.selected = scope.options[id];
+               if (attrs.multi && scope.selected !== attrs.default) {
+                  if (x > 0) {
+                     console.log(x);
+                     scope.selected = scope.selected + "," + scope.options[id];
+                     x--;
+                  } else {
+                     //callback should be user defined
+                     alert("max exceeded");
+                  }
+               } else {
+                  scope.selected = scope.options[id];
+               }
             });
+
             element.removeClass("open");
          }
          var button = angular.element(element.children()[0]);
@@ -30,13 +42,13 @@
          }
          var ul = angular.element("<ul>");
          ul.addClass("dropdown-menu inner");
-         list(ul, scope);
+         list(ul, scope, attrs);
          var dropdown = angular.element(element.children()[1]);
-         dropdown.append(ul)
+         dropdown.append(ul);
          button.bind("click", open);
       }
 
-      function list(ul, scope) {
+      function list(ul, scope, attr) {
          for (var i = 0; i < scope.options.length; i++) {
             var li = angular.element("<li>");
             if (scope.catagories !== undefined) {
@@ -48,6 +60,10 @@
                   li.attr("index", i);
                   li.bind("click", function(e) {
                      var index = angular.element(this).attr("index");
+                     angular.element(this).addClass("selected");
+                     if (attr.multi) {
+                        angular.element(angular.element(li.children()[0]).children()[1]).toggleClass("check-mark");
+                     }
                      scope.select(index);
                   });
                } else {
@@ -63,11 +79,15 @@
                li.attr("index", i);
                li.bind("click", function(e) {
                   var index = angular.element(this).attr("index");
+                  var li = angular.element(this).addClass("selected");
+                  angular.element(this).addClass("selected");
+                  if (attr.multi) {
+                     angular.element(angular.element(li.children()[0]).children()[1]).toggleClass("check-mark");
+                  }
                   scope.select(index);
                });
             }
             ul.append(li);
          }
       }
-
    });

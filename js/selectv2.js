@@ -1,8 +1,25 @@
    var app = angular.module('SelectV2', []);
+   app.run(function($templateCache) {
+      var strVar = "";
+      strVar += "<div class=\"btn-group bootstrap-select\" ng-class=\"class\">";
+      strVar += "   <button type=\"button\" class=\"btn dropdown-toggle btn-default\">";
+      strVar += "      <span class=\"filter-option pull-left\">{{selected}}<\/span> &nbsp;";
+      strVar += "      <span class=\"caret\"><\/span>";
+      strVar += "   <\/button>";
+      strVar += "   <div class=\"dropdown-menu open\" style=\"max-height: 337px; overflow: hidden; min-height: 42px;\">";
+      strVar += "      <div class=\"bs-searchbox\">";
+      strVar += "         <input type=\"text\" ng-model=\"selectv2.searchtext\" class=\"form-control\" autocomplete=\"off\">";
+      strVar += "      <\/div>";
+      strVar += "   <\/div>";
+      strVar += "<\/div>";
+      strVar += "";
+      $templateCache.put('selectv2.html', strVar);
+   });
+
    app.directive('selectv2', function($timeout, $document) {
       return {
          restrict: 'E',
-         templateUrl: "partials/select.html",
+         templateUrl: "selectv2.html",
          scope: {
             options: "=options",
             catagories: "=catagories"

@@ -1,6 +1,6 @@
 <div class="btn-group bootstrap-select" ng-class="class">
    <button type="button" class="btn dropdown-toggle btn-default" ng-click="open()">
-      <span class="filter-option pull-left">{{selected}}</span> &nbsp;
+      <span class="filter-option pull-left">{{selected.option}}</span> &nbsp;
       <span class="caret"></span>
    </button>
    <div class="dropdown-menu open" style="max-height: 337px; overflow: hidden; min-height: 42px;">
@@ -8,10 +8,10 @@
          <input type="text" ng-model="selectv2.searchtext" class="form-control" autocomplete="off">
       </div>
       <ul class="dropdown-menu inner" role="menu" style="max-height: 283px; overflow-y: auto; min-height: 0px;">
-         <li data-original-index="{{option.$index}}" ng-repeat="option in options | filter:selectv2.searchtext" ng-click="select($index)">
-            <a>
-               <span class="text">{{option}}</span>
-            </a>
+         <li data-original-index="{{option.$index}}" ng-repeat="option in options 
+ | filter:selectv2.searchtext" ng-class="option.class" ng-click="select($index)">
+            <span class="text">{{option.option}}</span>
+            <span class="glyphicon glyphicon-ok check-mark"></span>
          </li>
       </ul>
    </div>

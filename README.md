@@ -39,18 +39,13 @@ You need to include a link to the css file in your page.
 <link rel="stylesheet" href="css/bootstrap-select.css">
 ```
 
-<!---### Options
+### Options
 
 There are several options that you can set as attributes on the directive element
 
-1.  `start-time` : init clock with specific time in milliseconds, (default: `undefined`)
-2.  `digital-format` : digital clock format in [angular date filter format](https://docs.angularjs.org/api/ng/filter/date) (default: `'HH-mm-ss'`). Pass as string enclosed in single quate
-3.  `gmt-offset` : shows time for the given [GMT offset](http://en.wikipedia.org/wiki/List_of_UTC_time_offsets) in clock, (default: `false`, shows local time) example: India -> 5.30, Singapore -> 8 , venezula -> -4.30, Nepal -> 5.45
-4.  `show-digital`: shows digital clock, (default: `true` if both show-analog &show-digital are not set)
-5.  `show-analog` : shows analog clock, (default: `true` if both show-analog &show-digital are not set)
-6.  `show-gmt-info` : shows GMT offset value, (default: `false`)
-7.  `theme` : analog clockface theme, (default: `light`)
---->
+1.  `data-options` : options to be shown for select picker options
+2.  `data-livesearch` : true for making livesearch on
+3.  `data-catagories` : options in options array that are catagory marker
 
 ## Browser compatibility
 
@@ -74,23 +69,18 @@ angular clock widget is reactive and fully responsive
  
 Please check if issue exists and otherwise open issue in [github](https://github.com/yashdeeph709/selectv2/issues?state=open)
 
-**Please add a link to a plunker, jsbin, or equivalent.** 
+**Please add a link to a plunker, jsbin, or equivalent also discuss the usecase.** 
 
-<!---# Contributing
+# Contributing
  
 Pull requests welcome!
 
 1. Fork the repo
 2. Make your changes
-3. Write unit tests under test directory
-4. Update examples under examples directory
-5. Run tests: `npm test`, `gulp test`
-6. Submit pull request
---->
+3. Submit pull request
+
 ## Contributors
-
 Thank you!
-
 
 # Author
 

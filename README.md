@@ -1,3 +1,4 @@
+
 # Select Version 2
 
 Responsive, beautiful SELECT for [AngularJS](http://angularjs.org) applications.
@@ -46,6 +47,8 @@ There are several options that you can set as attributes on the directive elemen
 1.  `data-options` : options to be shown for select picker options
 2.  `data-livesearch` : true for making livesearch on
 3.  `data-catagories` : options in options array that are catagory marker
+4.  `data-multi` : it makes this control as select with multiple attribute
+5.  `data-maxopt`: it tells how many items canbe selected in a multi based select picker.
 
 ## Browser compatibility
 

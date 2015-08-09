@@ -2,7 +2,7 @@
 # Select Version 2
 
 Responsive, beautiful SELECT for [AngularJS](http://angularjs.org) applications.
-
+Try a [demo](http://yashdeeph709.github.io/selectv2)
 
 # Getting started
 

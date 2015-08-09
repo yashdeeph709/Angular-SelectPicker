@@ -20,6 +20,7 @@
       return {
          restrict: 'E',
          templateUrl: "selectv2.html",
+         require: '?ngModel',
          scope: {
             options: "=options",
             catagories: "=catagories"
@@ -28,25 +29,42 @@
          link: linkFn
       }
 
-      function linkFn(scope, element, attrs) {
+      function linkFn(scope, element, attrs, ngModelCtrl) {
          scope.selected = attrs.default;
          var x = attrs.maxopt - 1;
+         ngModelCtrl.$render = function() {
+            console.log("line 36: render called by angular with " + ngModelCtrl.$viewValue);
+            $timeout(function() {
+               scope.selected = ngModelCtrl.$viewValue;
+            });
+         }
          open = function(e) {
             element.toggleClass("open");
          }
          scope.select = function(id) {
+            console.log("line 47:select called!");
             $timeout(function() {
                if (attrs.multi && scope.selected !== attrs.default) {
+                  console.log("line 50:multi select on and not first click");
                   if (x > 0) {
-                     console.log(x);
+                     console.log("line 52:Max is far");
                      scope.selected = scope.selected + "," + scope.options[id];
+                     ngModelCtrl.$setViewValue(scope.selected);
+                     ngModelCtrl.$render();
                      x--;
+                     return true;
                   } else {
                      //callback should be user defined
+                     console.log("line 60:Max is happend");
                      alert("max exceeded");
+                     return false;
                   }
                } else {
+                  console.log("line 65:single select is on");
                   scope.selected = scope.options[id];
+                  ngModelCtrl.$setViewValue(scope.selected);
+                  ngModelCtrl.$render();
+                  return true;
                }
             });
 
@@ -77,11 +95,10 @@
                   li.attr("index", i);
                   li.bind("click", function(e) {
                      var index = angular.element(this).attr("index");
-                     angular.element(this).addClass("selected");
-                     if (attr.multi) {
+                     if (scope.select(index) && attr.multi) {
+                        console.log("tooggling on");
                         angular.element(angular.element(li.children()[0]).children()[1]).toggleClass("check-mark");
                      }
-                     scope.select(index);
                   });
                } else {
                   i !== 0 ? ul.append(angular.element("<li class='divider'>")) : null;
@@ -98,10 +115,9 @@
                   var index = angular.element(this).attr("index");
                   var li = angular.element(this).addClass("selected");
                   angular.element(this).addClass("selected");
-                  if (attr.multi) {
+                  if (scope.select(index) && attr.multi) {
                      angular.element(angular.element(li.children()[0]).children()[1]).toggleClass("check-mark");
                   }
-                  scope.select(index);
                });
             }
             ul.append(li);

@@ -8,7 +8,7 @@
       strVar += "   <\/button>";
       strVar += "   <div class=\"dropdown-menu open\" style=\"max-height: 337px; overflow: hidden; min-height: 42px;\">";
       strVar += "      <div class=\"bs-searchbox\">";
-      strVar += "         <input type=\"text\" ng-model=\"selectv2.searchtext\" class=\"form-control\" autocomplete=\"off\">";
+      strVar += "         <input type=\"text\" ng-change=\"search()\" ng-model=\"searchtext\" class=\"form-control\" autocomplete=\"off\">";
       strVar += "      <\/div>";
       strVar += "   <\/div>";
       strVar += "<\/div>";
@@ -39,6 +39,26 @@
                dropdown(scope.options, scope.catagories, attrs.livesearch, element, select);
             }
          });
+         //this function works for search
+         scope.search = function() {
+               console.log("search called" + scope.searchtext)
+               var result = findMatches(scope.searchtext, scope.options);
+               console.log("line 46:search called with searchtext" + scope.searchtext + "matcher resulted in");
+               console.log(result);
+               dropdown(result, scope.catagories, attrs.livesearch, element, select);
+            }
+            //findMatches function that searches a value with array items
+         function findMatches(text, items) {
+            var result = [];
+            var textlen = text.length;
+            for (var i = 0; i < items.length; i++) {
+               console.log("checking for " + items[i].slice(0, textlen) + " and " + text);
+               if (text === items[i].slice(0, textlen)) {
+                  result.push(items[i]);
+               }
+            }
+            return result;
+         }
          //dropdown opening logic
          var button = angular.element(element.children()[0]);
          button.bind("click", function(e) {
@@ -53,14 +73,14 @@
             });
          }
 
-         function select(id) {
+         function select(value) {
             console.log("line 47:select called!");
             if (attrs.multi && scope.selected !== ngModelCtrl.$viewValue) {
                console.log("line 50:multi select on and not first click");
-               scope.selected = scope.selected + "," + scope.options[id];
+               scope.selected = scope.selected + "," + value;
             } else {
                console.log("line 65:single select is on");
-               scope.selected = scope.options[id];
+               scope.selected = value;
             }
             ngModelCtrl.$setViewValue(scope.selected);
             ngModelCtrl.$render();
@@ -85,6 +105,7 @@
       var list = genList(options, catagories);
       livesearch(search, element);
       bind(list, select);
+      angular.element(angular.element(element.children()[1]).children()[1]).remove();
       dropdown.append(list);
    }
 
@@ -129,12 +150,12 @@
       for (var i = 0; i < ul.children().length; i++) {
          var li = angular.element(ul.children()[i]);
          li.bind("click", function(e) {
-            var index = angular.element(this).attr("index");
+            var value = angular.element(this).text();
             if (typeof select !== "function") {
                console.log("not a callback");
                return;
             }
-            select(index);
+            select(value);
          });
       }
    }

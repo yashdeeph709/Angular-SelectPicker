@@ -1,8 +1,8 @@
 
-# Select Version 2
+# Angular-SelectPicker
 
 Responsive, beautiful SELECT for [AngularJS](http://angularjs.org) applications.
-Try a [demo](http://yashdeeph709.github.io/selectv2)
+Try a [demo](http://yashdeeph709.github.io/Angular-SelectPicker)
 
 # Getting started
 
@@ -14,22 +14,22 @@ This repository contains **native AngularJS directives** to render a select face
 
 ### Installation
 
-Files can be downloaded [downloaded from Github](https://github.com/yashdeeph709/selectv2).
+Files can be downloaded [downloaded from Github](https://github.com/yashdeeph709/Angular-SelectPicker).
 and copy the files from `dist/`. Then add the sources to your code (adjust paths as needed) after 
 adding the dependencies for Angular first:
 
 ```html
 <script src="angular/angular.min.js"></script>
-<script src="dist/selectv2.js"></script>
+<script src="dist/Angular-SelectPicker.js"></script>
 ```
 
 The good news is that the overall size is very small: &lt; 1kb for all directives (~1kb with gzip compression!)
 
 
-As soon as you've got all the files downloaded and included in your page you just need to declare a dependency on the `SelectV2` [module](http://docs.angularjs.org/guide/module):   
+As soon as you've got all the files downloaded and included in your page you just need to declare a dependency on the `Angular-SelectPicker` [module](http://docs.angularjs.org/guide/module):   
 
 ```javascript
-angular.module('myModule', ['SelectV2']);
+angular.module('myModule', ['Angular-SelectPicker']);
 ```
 
 ### CSS
@@ -70,7 +70,7 @@ angular clock widget is reactive and fully responsive
 
 # Issues
  
-Please check if issue exists and otherwise open issue in [github](https://github.com/yashdeeph709/selectv2/issues?state=open)
+Please check if issue exists and otherwise open issue in [github](https://github.com/yashdeeph709/Angular-SelectPicker/issues?state=open)
 
 **Please add a link to a plunker, jsbin, or equivalent also discuss the usecase.** 
 
@@ -89,7 +89,7 @@ Thank you!
 
 Designed and built by [Yashdeep Hinge](https://github.com/jtblin)
 
-[Issues](https://github.com/yashdeeph709/selectv2/issues?state=open)
+[Issues](https://github.com/yashdeeph709/Angular-SelectPicker/issues?state=open)
 
 Inspired from [this demo](http://silviomoreto.github.io/bootstrap-select/).
 

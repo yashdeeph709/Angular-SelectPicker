@@ -15,7 +15,7 @@
       strVar += "";
       $templateCache.put('selectv2.html', strVar);
    });
-   app.directive('selectv2', function($timeout) {
+   app.directive('selectv2', function($timeout, $document) {
       //Directive Defination Object
       return {
          restrict: 'E',
@@ -30,6 +30,15 @@
       }
       //Link
       function linkFn(scope, element, attrs, ngModelCtrl) {
+         scope.selected = attrs.default;
+         element.attr("id", Math.floor(Math.random() * 1000));
+         $document.on("click", function(event) {
+            var elementid = angular.element(angular.element(event.toElement).parent()).attr("id")
+            var id = element.attr("id");
+            if (id !== elementid) {
+               element.removeClass("open");
+            }
+         });
          //template generator
          dropdown(scope.options, scope.catagories, attrs.livesearch, element, select);
          //waiting for model mutation and regenration
@@ -69,7 +78,9 @@
          ngModelCtrl.$render = function() {
             console.log("line 36: render called by angular with " + ngModelCtrl.$viewValue);
             $timeout(function() {
-               scope.selected = ngModelCtrl.$viewValue;
+               if (angular.isDefined(ngModelCtrl.$viewValue)) {
+                  scope.selected = ngModelCtrl.$viewValue;
+               }
             });
          }
 

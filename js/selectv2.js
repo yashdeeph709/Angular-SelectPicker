@@ -54,7 +54,12 @@
                var result = findMatches(scope.searchtext, scope.options);
                console.log("line 46:search called with searchtext" + scope.searchtext + "matcher resulted in");
                console.log(result);
-               dropdown(result, scope.catagories, attrs.livesearch, element, select);
+               if (angular.isDefined(result[0])) {
+                  dropdown(result, scope.catagories, attrs.livesearch, element, select);
+               } else {
+                  result.push("Nothing found");
+                  dropdown(result, scope.catagories, attrs.livesearch, element, select);
+               }
             }
             //findMatches function that searches a value with array items
          function findMatches(text, items) {

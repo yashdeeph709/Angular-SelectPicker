@@ -39,6 +39,9 @@
                element.removeClass("open");
             }
          });
+         element.bind("keyup", function(e) {
+            console.log(e);
+         });
          //template generator
          dropdown(scope.options, scope.catagories, attrs.livesearch, element, select);
          //waiting for model mutation and regenration
